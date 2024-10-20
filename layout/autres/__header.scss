@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #29b7dd;
+}
+@mixin auto {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1500px;
+}
+.bordureViolet {
+  background: #3b065e;
+  padding: 20px 0;
+  color: gray;
+  margin-bottom: 70px;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include auto();
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-wrap: wrap;
+  @include auto();
+  padding: 0 20px;
+}
+.flex {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 250px;
+  width: 300px;
+  text-align: center;
+  padding: 0 15px;
+}
+.flex i {
+  color: #29b7dd;
+  font-size: 3.4rem;
+}
+h3 {
+  text-transform: uppercase;
+  font-family: "Roboto";
+  margin: 22px 0;
+}
+main {
+  @include auto();
+}
