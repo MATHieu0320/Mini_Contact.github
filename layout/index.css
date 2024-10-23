@@ -19,6 +19,38 @@ a {
   margin-bottom: 70px;
 }
 
+.absolute {
+  position: absolute;
+  background-color: black;
+  height: 100vh;
+  width: 300px;
+  display: none;
+}
+
+h4 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h4:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+.toggle {
+  display: block;
+  animation: 0.5s translate;
+  animation-duration: 0.5s;
+}
+
+@keyframes translate {
+  0% {
+    transform: translateX(-300px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
 nav {
   display: flex;
   align-items: center;
@@ -26,6 +58,11 @@ nav {
   margin: 0 auto;
   padding: 0 20px;
   max-width: 1500px;
+}
+
+i {
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .box {
@@ -51,6 +88,11 @@ nav {
   text-align: center;
   padding: 0 15px;
 }
+@media screen and (max-width: 693px) {
+  .flex {
+    width: 90%;
+  }
+}
 
 .flex i {
   color: #29b7dd;
@@ -72,6 +114,11 @@ main {
   margin-top: 50px;
   margin-bottom: 50px;
 }
+@media screen and (max-width: 693px) {
+  main {
+    display: block;
+  }
+}
 
 .main-1 {
   color: #ffffff;
@@ -82,11 +129,20 @@ h2 {
   font-size: 3rem;
   margin-bottom: 35px;
 }
+@media screen and (max-width: 900px) {
+  h2 {
+    font-size: 2.1rem;
+  }
+}
 
 p {
   font-size: 1.2rem;
   line-height: 30px;
   width: 90%;
+}
+
+p a {
+  color: black;
 }
 
 img {
@@ -118,7 +174,6 @@ label {
 #submit {
   outline: none;
   border: none;
-  height: 50px;
   width: 100%;
   font-size: 1rem;
   color: gray;
@@ -137,4 +192,16 @@ label {
 .Email {
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 690px) {
+  .main-1,
+  .main-2 {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  form {
+    margin-top: 50px;
+  }
 }/*# sourceMappingURL=index.css.map */
