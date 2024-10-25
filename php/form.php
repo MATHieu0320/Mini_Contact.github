@@ -38,7 +38,7 @@
         || empty($dataPost["text"])
         || empty($dataPost["area"])
     ) {
-        echo "non";
+        // echo "non";
     } else {
         foreach ($tableauClient as $key) {
             if ($key["Email"] === $dataPost["email"]) {
@@ -47,25 +47,37 @@
                 $_SESSION["confirmer"] = [
                     "mail" => $dataPost["email"]
                 ];
-
+                echo $_SESSION["confirmer"]["mail"];
             }
         }
 
-        if (!isset($_SESSION["confirmer"])) {
+        if (isset($_SESSION["confirmer"])) {
             echo "reste la";
-        }
-        // try {
-        //     $baseDeDonnee = new PDO('mysql:host=localhost;port=3307;dbname=automobile;charset=utf8', 'root', "root", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-    
-        // } catch (Exception $e) {
-        //     die('Erreur : ' . $e->getMessage());
-        // }
-    
+            try {
+                $baseDeDonnee = new PDO('mysql:host=localhost;port=3307;dbname=validation;charset=utf8', 'root', "root", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
-        // $sql = 'INSERT INTO d (email,name,message) VALUES (:email,:name,:message)';
-        // $preparation = $baseDeDonnee->prepare($sql);
-        // $preparation = $preparation->execute();
-    
+            } catch (Exception $e) {
+                die('Erreur : ' . $e->getMessage());
+            }
+
+
+            $sql = 'INSERT INTO information (Email,Prenom,commentaire) VALUES (:Email,:Prenom,:commentaire)';
+            $preparation = $baseDeDonnee->prepare($sql);
+            $preparation = $preparation->execute(
+                [
+                    "Email" => $dataPost["email"],
+                    "Prenom" => $dataPost["text"],
+                    "commentaire" => $dataPost["area"]
+                ]
+            );
+
+
+
+        } else {
+            echo "non";
+        }
+
+
     }
 
     ?>
