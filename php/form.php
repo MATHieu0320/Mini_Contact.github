@@ -67,7 +67,7 @@
                 [
                     "Email" => $dataPost["email"],
                     "Prenom" => $dataPost["text"],
-                    "commentaire" => $dataPost["area"]
+                    "commentaire" => $dataPost["date"]
                 ]
             );
 
